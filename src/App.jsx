@@ -38,7 +38,7 @@ function App() {
         if (!isDrawing) {
             return
         }
-        const {offsetX, offsetY} = nativeEvent
+        const { offsetX, offsetY } = nativeEvent.touches ? nativeEvent.touches[0] : nativeEvent;
         contextRef.current.lineTo(offsetX, offsetY)
         contextRef.current.stroke()
     }
