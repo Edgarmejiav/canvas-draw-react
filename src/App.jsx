@@ -8,9 +8,9 @@ function App() {
     useEffect(() => {
         const canvas = canvasRef.current
         canvas.width = window.innerWidth * 2
-        canvas.height = (window.innerWidth/3) * 2
+        canvas.height = (window.innerHeight) * 2
         canvas.style.width = `${window.innerWidth}px`
-        canvas.style.height = `${(window.innerWidth/3)}px`
+        canvas.style.height = `${(window.innerHeight)}px`
 
         const ctx = canvas.getContext('2d')
         ctx.scale(2, 2)
