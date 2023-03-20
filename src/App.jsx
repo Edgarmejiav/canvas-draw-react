@@ -1,5 +1,4 @@
 import {Fragment, useEffect, useRef, useState} from 'react'
-import './App.css'
 import {Header} from "./Header";
 
 function App() {
@@ -8,10 +7,10 @@ function App() {
     const [isDrawing, setIsDrawing] = useState(false)
     useEffect(() => {
         const canvas = canvasRef.current
-        canvas.width = 500 * 2
-        canvas.height = 500 * 2
-        canvas.style.width = `${500}px`
-        canvas.style.height = `${500}px`
+        canvas.width = window.innerWidth * 2
+        canvas.height = (window.innerWidth/3) * 2
+        canvas.style.width = `${window.innerWidth}px`
+        canvas.style.height = `${(window.innerWidth/3)}px`
 
         const ctx = canvas.getContext('2d')
         ctx.scale(2, 2)
