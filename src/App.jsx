@@ -2,6 +2,8 @@ import {Fragment, useEffect, useRef, useState} from 'react'
 import {Header} from "./Header";
 
 function App() {
+    const [color, setColor] = useState('#000000');
+
     const canvasRef = useRef(null)
     const contextRef = useRef(null)
     const [isDrawing, setIsDrawing] = useState(false)
@@ -15,12 +17,12 @@ function App() {
         const ctx = canvas.getContext('2d')
         ctx.scale(2, 2)
         ctx.lineCap = 'round'
-        ctx.strokeStyle = 'black'
+        ctx.strokeStyle = color
         ctx.lineWidth = 5
 
         contextRef.current = ctx
 
-    }, [])
+    }, [color])
     const startDrawing = ({nativeEvent}) => {
         const {offsetX, offsetY} = nativeEvent
         contextRef.current.beginPath()
@@ -54,8 +56,14 @@ function App() {
         const ctx = canvas.getContext('2d')
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
+    const handleChangeColor = (event) => {
+        setColor(event.target.value);
+    }
+
     return (<Fragment>
         <Header clearCanvas={clearCanvas}/>
+        <input style={{position:"absolute" , bottom:10}} type="color" value={color} onChange={handleChangeColor} />
+
         <canvas
             className={'canvas'}
             onMouseDown={startDrawing}
