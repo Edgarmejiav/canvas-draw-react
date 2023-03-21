@@ -38,9 +38,16 @@ function App() {
         if (!isDrawing) {
             return
         }
-        const { offsetX, offsetY } = nativeEvent.touches ? nativeEvent.touches[0] : nativeEvent;
-        contextRef.current.lineTo(offsetX, offsetY)
-        contextRef.current.stroke()
+        if (nativeEvent.touches) { // mobile
+            const {clientX, clientY} = nativeEvent.touches[0];
+            contextRef.current.lineTo(clientX, clientY)
+            contextRef.current.stroke();
+        } else { // desktop
+            const {offsetX, offsetY} = nativeEvent;
+            contextRef.current.lineTo(offsetX, offsetY);
+
+            contextRef.current.stroke();
+        }
     }
     const clearCanvas = () => {
         const canvas = canvasRef.current
