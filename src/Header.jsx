@@ -3,7 +3,7 @@ export const Header = ({clearCanvas}) => {
         <div className="header">
             <h1>Pizarra</h1>
             <button onClick={clearCanvas}>
-                Reiniciar
+                Borrar
             </button>
         </div>
     );
