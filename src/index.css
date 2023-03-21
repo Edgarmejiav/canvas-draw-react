@@ -68,3 +68,7 @@ button:hover{
     transform: scale(1.1);
 
 }
+input{
+    position: absolute;
+    bottom: 10px;
+}

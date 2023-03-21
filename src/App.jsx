@@ -67,7 +67,7 @@ function App() {
 
     return (<Fragment>
         <Header clearCanvas={clearCanvas}/>
-        <input style={{position: "absolute", bottom: 10}} type="color" value={color} onChange={handleChangeColor}/>
+        <input  type="color" value={color} onChange={handleChangeColor}/>
 
         <canvas
             className={'canvas'}
